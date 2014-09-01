@@ -1,0 +1,27 @@
+#Debugging messages
+debug: false
+#Worlds to require spacesuit
+worlds:
+- Space
+#Bukkit name of refill block
+refill: SPONGE
+#Bukkit name of oxygen tank
+tank: CACTUS
+#Bukkit name of oxygen mask
+mask: GLASS
+#Require full armor
+full: true
+#Bukkit Name of Air Bubble Maker
+bubble: SPONGE
+#Oxygen in a new tank
+oxygen: 9999
+#Radius of Oxygen Bubble
+bradius: 5
+#Are sponges able to be crafted? (NOTE: NOT ABLE TO BE RELOADED ON /SSRELOAD)
+crafts: true
+#Damage in half hearts made by suffocation
+damage: 4
+#Slot number where helmet should be (Default: 103)
+helslot: 103
+#Slot number where oxygen tank should be (Default: 102)
+tankslot: 102

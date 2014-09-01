@@ -1,0 +1,17 @@
+name: SpaceSuit
+main: aj.Java.SpaceSuit.Main
+version: 2.1.0
+commands:
+  ssreload:
+    description: Reloads SpaceSuit config.
+    usage: /ssreload
+    permission: spacesuit.reload
+    permission-message: You cannot reload SpaceSuit config!
+permissions:
+  spacesuit.reload:
+    description: Lets you reload SpaceSuits config
+    default: op
+  spacesuit.*:
+    description: All the perms!
+    children:
+      spacesuit.reload: true
