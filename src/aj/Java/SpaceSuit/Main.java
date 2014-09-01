@@ -58,9 +58,10 @@ public class Main extends JavaPlugin {
 		}
 		l = getLogger();
 		if(getServer().getPluginManager().getPlugin("WorldGuard") != null){
+			l.info("WorldGuard compat loaded!");
 			worldguard = true;
 		}
-		getLogger().info("SpaceSuit is ready to breath!");
+		l.info("SpaceSuit is ready to breath!");
 	}
 	@Override
 	public void onDisable(){
