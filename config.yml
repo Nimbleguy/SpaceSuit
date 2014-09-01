@@ -25,3 +25,10 @@ damage: 4
 helslot: 103
 #Slot number where oxygen tank should be (Default: 102)
 tankslot: 102
+#Worldguard configs (Only used if Worldguard is installed)
+worldguard:
+  #If  should blacklist regions from needing spacesuits or whitelist regions needing spacesuits when worlguard is installed. (Default: true)
+  blacklist: true
+  #List of regions that are whitelisted/blacklisted
+  regions:
+   - Earth

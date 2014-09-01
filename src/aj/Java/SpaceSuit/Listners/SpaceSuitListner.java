@@ -38,6 +38,9 @@ public class SpaceSuitListner implements Listener {
 						timer.put(p.getDisplayName(), timer.get(p.getDisplayName()) + 1);
 					}
 				}
+				if(Main.worldguard){
+					
+				}
 				//Do nothing if tank not needed
 				if(notNeedTank){
 					if(Main.debug){

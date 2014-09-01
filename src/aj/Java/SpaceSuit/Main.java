@@ -9,6 +9,7 @@ import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.ShapedRecipe;
+import org.bukkit.plugin.Plugin;
 import org.bukkit.plugin.java.JavaPlugin;
 
 import aj.Java.SpaceSuit.Listners.SpaceSuitListner;
@@ -27,6 +28,9 @@ public class Main extends JavaPlugin {
 	public static int damage = 4;
 	public static int helslot = 103;
 	public static int tankslot = 102;
+	public static boolean blacklist = true;
+	public static List<String> regions = null;
+	public static boolean worldguard = false;
 	@Override
 	public void onEnable(){
 		this.saveDefaultConfig();
@@ -42,6 +46,8 @@ public class Main extends JavaPlugin {
 		damage = this.getConfig().getInt("damage");
 		helslot = this.getConfig().getInt("helslot");
 		tankslot = this.getConfig().getInt("tankslot");
+		blacklist = this.getConfig().getBoolean("worldguard.blacklist");
+		regions = this.getConfig().getStringList("worldguard.regions");
 		this.getServer().getPluginManager().registerEvents(new SpaceSuitListner(), this);
 		if(this.getConfig().getBoolean("crafts")){
 			addRecipes();
@@ -52,6 +58,9 @@ public class Main extends JavaPlugin {
 			}
 		}
 		l = getLogger();
+		if(getServer().getPluginManager().getPlugin("WorldGuard") != null){
+			worldguard = true;
+		}
 		getLogger().info("SpaceSuit is ready to breath!");
 	}
 	@Override
@@ -75,6 +84,9 @@ public class Main extends JavaPlugin {
 				damage = this.getConfig().getInt("damage");
 				helslot = this.getConfig().getInt("helslot");
 				tankslot = this.getConfig().getInt("tankslot");
+				blacklist = this.getConfig().getBoolean("worldguard.blacklist");
+				regions = this.getConfig().getStringList("worldguard.regions");
+				
 				sender.sendMessage("SpaceSuit reloaded!");
 			}
 		}

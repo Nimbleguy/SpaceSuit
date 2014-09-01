@@ -1,6 +1,8 @@
 name: SpaceSuit
 main: aj.Java.SpaceSuit.Main
-version: 2.1.0
+version: 3.0.0
+softdepend: [WorldGuard]
+loadbefore: [WorldGuard]
 commands:
   ssreload:
     description: Reloads SpaceSuit config.
