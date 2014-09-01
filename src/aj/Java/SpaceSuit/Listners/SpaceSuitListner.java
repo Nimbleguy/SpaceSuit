@@ -1,5 +1,6 @@
 package aj.Java.SpaceSuit.Listners;
 
+import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -38,8 +39,14 @@ public class SpaceSuitListner implements Listener {
 						timer.put(p.getDisplayName(), timer.get(p.getDisplayName()) + 1);
 					}
 				}
-				if(Main.worldguard){
-					
+				if(Main.worldguard && !notNeedTank){
+					try {
+						Class<?> c = Class.forName("aj.Java.SpaceSuit.WorldGuard.WorldGuardHook");
+						Method m = c.getMethod("getNotNeedTank", Player.class);
+						notNeedTank = (Boolean) m.invoke(null, p);
+					} catch (Exception e1) {
+						e1.printStackTrace();
+					}
 				}
 				//Do nothing if tank not needed
 				if(notNeedTank){
