@@ -1,9 +1,15 @@
 package aj.Java.SpaceSuit;
 
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Logger;
 
+import org.bukkit.Location;
 import org.bukkit.Material;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
@@ -29,6 +35,7 @@ public class Main extends JavaPlugin {
 	public static int tankslot = 102;
 	public static boolean blacklist = true;
 	public static List<String> regions = null;
+	public static List<Location> generators = null;
 	public static boolean worldguard = false;
 	@Override
 	public void onEnable(){
@@ -102,5 +109,21 @@ public class Main extends JavaPlugin {
 		sponge.setIngredient('R', Material.REDSTONE);
 		sponge.setIngredient('P', Material.REDSTONE_BLOCK);
 		this.getServer().addRecipe(sponge);
+	}
+	public static <T extends Object> void save(T obj, String path) throws Exception
+	{
+		ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(path));
+		oos.writeObject(obj);
+		oos.flush();
+		oos.close();
+	}
+	public static <T extends Object> T load(String path) throws Exception
+	{
+		ObjectInputStream ois = new ObjectInputStream(new FileInputStream(path));
+		@SuppressWarnings("unchecked")
+		T result = (T)ois.readObject();
+		ois.close();
+		
+		return result;
 	}
 }

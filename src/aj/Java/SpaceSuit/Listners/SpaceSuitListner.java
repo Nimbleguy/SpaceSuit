@@ -9,10 +9,12 @@ import org.bukkit.Material;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
+import org.bukkit.event.block.BlockPlaceEvent;
 import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.event.player.PlayerMoveEvent;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
+import org.bukkit.material.Lever;
 
 import aj.Java.SpaceSuit.Main;
 
@@ -131,6 +133,13 @@ public class SpaceSuitListner implements Listener {
 				else if(event.getItem().isSimilar(new ItemStack(Material.matchMaterial(Main.mask)))){
 					event.getPlayer().getInventory().setHelmet(event.getItem());
 					event.getPlayer().getInventory().setItemInHand(null);
+				}
+			}
+		}
+		if(event.hasBlock()){
+			if(event.getClickedBlock().getState() instanceof Lever){
+				if(((Lever)event.getClickedBlock().getState()).isPowered()){
+					
 				}
 			}
 		}
